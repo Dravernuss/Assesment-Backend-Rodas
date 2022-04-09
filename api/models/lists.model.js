@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 // Schema List
 const schemaLists = {
   user_id: String,
+  user_email: String,
   name: String,
 };
 
