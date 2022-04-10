@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import "dotenv/config";
-import { userRouter } from "./api/routes/index.js";
+import { listRouter, userRouter } from "./api/routes/index.js";
 
 /**
  * Mongoose
@@ -31,6 +31,7 @@ app.get("/", (request, response) => {
 });
 
 app.use("/api", userRouter);
+app.use("/api", listRouter);
 
 const PORT = process.env.PORT || 5000;
 
