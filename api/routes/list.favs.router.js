@@ -2,7 +2,7 @@ import express from "express";
 
 import { listFavsCtrl } from "../controllers/index.js";
 
-import { validateToken } from "../middlewares/index.js";
+import { isAuthenticated } from "../middlewares/index.js";
 
 const {
   getAllListsFavs,
@@ -24,11 +24,19 @@ const listFavsRoutes = {
   DELETE: "/favs/delete/:id",
 };
 
-router.get(listFavsRoutes.GET_ALL_LISTS_FAVS, validateToken, getAllListsFavs);
-router.get(listFavsRoutes.GET_LISTS_BY_USER, validateToken, getListsFavsByUser);
-router.get(listFavsRoutes.GET_ONE_LIST_BY_LISTID, validateToken, getOneListFav);
-router.post(listFavsRoutes.CREATE, validateToken, createListFav);
-router.put(listFavsRoutes.UPDATE, validateToken, updateListFav);
-router.delete(listFavsRoutes.DELETE, validateToken, deleteListFav);
+router.get(listFavsRoutes.GET_ALL_LISTS_FAVS, isAuthenticated, getAllListsFavs);
+router.get(
+  listFavsRoutes.GET_LISTS_BY_USER,
+  isAuthenticated,
+  getListsFavsByUser
+);
+router.get(
+  listFavsRoutes.GET_ONE_LIST_BY_LISTID,
+  isAuthenticated,
+  getOneListFav
+);
+router.post(listFavsRoutes.CREATE, isAuthenticated, createListFav);
+router.put(listFavsRoutes.UPDATE, isAuthenticated, updateListFav);
+router.delete(listFavsRoutes.DELETE, isAuthenticated, deleteListFav);
 
 export default router;

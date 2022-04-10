@@ -1,4 +1,7 @@
 import { ListFav, User } from "../models/index.js";
+import { dataMissing } from "../validations/dataMissing.js";
+import { notNull } from "../validations/notNull.js";
+import { notNullOnArray } from "../validations/notNullOnArray.js";
 
 // Controller get all ListsFavs for all users  ************
 export const getAllListsFavs = async (request, response) => {
@@ -55,53 +58,13 @@ export const createListFav = async (req, res) => {
     }
 
     // Ensuring that title, description and link aren't null
-    if (!title) {
-      console.log("Fav Title cannot be null");
-      res.status(403).send("Fav Title cannot be null");
-      throw new Error();
-    }
+    notNull(title, description, link, res);
 
-    if (!description) {
-      console.log("Fav Description cannot be null");
-      res.status(403).send("Fav Description cannot be null");
-      throw new Error();
-    }
-
-    if (!link) {
-      console.log("Fav link cannot be null");
-      res.status(403).send("Fav link cannot be null");
-      throw new Error();
-    }
     // Ensuring every favorite have their properties
-    if (title.length !== description.length || title.length !== link.length) {
-      console.log("Data is missing in body");
-      res.status(403).send("Data is missing in body");
-      throw new Error();
-    }
+    dataMissing(title, description, link, res);
 
     // Ensuring that any elements in arrays aren't null
-    title.map((stitle) => {
-      if (stitle === "") {
-        console.log("Null title is forbidden");
-        res.status(403).send("Null title is forbidden");
-        throw new Error();
-      }
-    });
-
-    link.map((slink) => {
-      if (slink === "") {
-        console.log("Null link is forbidden");
-        res.status(403).send("Null link is forbidden");
-        throw new Error();
-      }
-    });
-    description.map((sdescription) => {
-      if (sdescription === "") {
-        console.log("Null description is forbidden");
-        res.status(403).send("Null description is forbidden");
-        throw new Error();
-      }
-    });
+    notNullOnArray(title, description, link, res);
 
     const list = new ListFav({ ...req.body, user_id, user_email });
     const newList = await list.save();
@@ -122,57 +85,19 @@ export const updateListFav = async (req, res) => {
   try {
     // Ensuring name Lists can't be changed to empty
     if (!name) {
-      console.log("Fav Title cannot be null");
-      res.status(403).send("Fav Title cannot be null");
-      throw new Error();
-    }
-    if (!title) {
-      console.log("Fav Title cannot be null");
-      res.status(403).send("Fav Title cannot be null");
+      console.log("Fav Name cannot be null");
+      res.status(403).send("Fav Name cannot be null");
       throw new Error();
     }
 
-    if (!description) {
-      console.log("Fav Description cannot be null");
-      res.status(403).send("Fav Description cannot be null");
-      throw new Error();
-    }
+    // Ensuring that title, description and link aren't null
+    notNull(title, description, link, res);
 
-    if (!link) {
-      console.log("Fav link cannot be null");
-      res.status(403).send("Fav link cannot be null");
-      throw new Error();
-    }
     // Ensuring every favorite have their properties
-    if (title.length !== description.length || title.length !== link.length) {
-      console.log("Data is missing in body");
-      res.status(403).send("Data is missing in body");
-      throw new Error();
-    }
+    dataMissing(title, description, link, res);
 
     // Ensuring that any elements in arrays aren't null
-    title.map((stitle) => {
-      if (stitle === "") {
-        console.log("Null title is forbidden");
-        res.status(403).send("Null title is forbidden");
-        throw new Error();
-      }
-    });
-
-    link.map((slink) => {
-      if (slink === "") {
-        console.log("Null link is forbidden");
-        res.status(403).send("Null link is forbidden");
-        throw new Error();
-      }
-    });
-    description.map((sdescription) => {
-      if (sdescription === "") {
-        console.log("Null description is forbidden");
-        res.status(403).send("Null description is forbidden");
-        throw new Error();
-      }
-    });
+    notNullOnArray(title, description, link, res);
 
     ListFav.updateOne(list, listToUpdate, (error, updatedList) => {
       if (!error) {
@@ -189,11 +114,14 @@ export const deleteListFav = async (req, res) => {
   const { id: idList } = req.params;
   try {
     const listToDelete = await ListFav.findById(idList);
+    const { name } = listToDelete;
+
     if (!listToDelete) {
       res.status(204).send({ err: "No list to delete" });
     } else {
       const deletedList = await ListFav.deleteOne(listToDelete);
-      if (deletedList) res.status(200).json(deletedList);
+      if (deletedList)
+        res.status(200).send(`ListFav ${name} deleted Successfully`);
     }
   } catch (error) {
     res.status(403).send();
