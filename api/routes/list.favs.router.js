@@ -9,7 +9,6 @@ const {
   getListsFavsByUser,
   getOneListFav,
   createListFav,
-  findListFav,
   updateListFav,
   deleteListFav,
 } = listFavsCtrl;
@@ -29,7 +28,7 @@ router.get(listFavsRoutes.GET_ALL_LISTS_FAVS, validateToken, getAllListsFavs);
 router.get(listFavsRoutes.GET_LISTS_BY_USER, validateToken, getListsFavsByUser);
 router.get(listFavsRoutes.GET_ONE_LIST_BY_LISTID, validateToken, getOneListFav);
 router.post(listFavsRoutes.CREATE, validateToken, createListFav);
-router.put(listFavsRoutes.UPDATE, validateToken, findListFav, updateListFav);
+router.put(listFavsRoutes.UPDATE, validateToken, updateListFav);
 router.delete(listFavsRoutes.DELETE, validateToken, deleteListFav);
 
 export default router;

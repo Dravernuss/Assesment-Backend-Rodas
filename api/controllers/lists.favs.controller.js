@@ -72,12 +72,36 @@ export const createListFav = async (req, res) => {
       res.status(403).send("Fav link cannot be null");
       throw new Error();
     }
-
+    // Ensuring every favorite have their properties
     if (title.length !== description.length || title.length !== link.length) {
       console.log("Data is missing in body");
       res.status(403).send("Data is missing in body");
       throw new Error();
     }
+
+    // Ensuring that any elements in arrays aren't null
+    title.map((stitle) => {
+      if (stitle === "") {
+        console.log("Null title is forbidden");
+        res.status(403).send("Null title is forbidden");
+        throw new Error();
+      }
+    });
+
+    link.map((slink) => {
+      if (slink === "") {
+        console.log("Null link is forbidden");
+        res.status(403).send("Null link is forbidden");
+        throw new Error();
+      }
+    });
+    description.map((sdescription) => {
+      if (sdescription === "") {
+        console.log("Null description is forbidden");
+        res.status(403).send("Null description is forbidden");
+        throw new Error();
+      }
+    });
 
     const list = new ListFav({ ...req.body, user_id, user_email });
     const newList = await list.save();
@@ -87,59 +111,76 @@ export const createListFav = async (req, res) => {
   }
 };
 
-export const findListFav = async (req, res, next) => {
-  const { id: idList } = req.params;
-
-  try {
-    const list = await ListFav.findById(idList);
-    if (list) {
-      req.data = { list };
-      next();
-    } else {
-      req.status(204).json({ error: "No list founded" });
-    }
-  } catch (error) {
-    res.status(403).send();
-  }
-};
-
-// Controller update a ListFav
+// Controller update a ListFav or add a new fav in list ****
 export const updateListFav = async (req, res) => {
+  const { id: idListsFav } = req.params;
+  const list = await ListFav.findById(idListsFav);
+
   const listToUpdate = req.body;
   const { name, title, description, link } = listToUpdate;
-  const { list } = req.data;
 
   try {
     // Ensuring name Lists can't be changed to empty
     if (!name) {
-      console.log("List Name cannot be null");
-      res.status(403).send("List Name cannot be null");
+      console.log("Fav Title cannot be null");
+      res.status(403).send("Fav Title cannot be null");
       throw new Error();
     }
-    //sdads
+    if (!title) {
+      console.log("Fav Title cannot be null");
+      res.status(403).send("Fav Title cannot be null");
+      throw new Error();
+    }
+
+    if (!description) {
+      console.log("Fav Description cannot be null");
+      res.status(403).send("Fav Description cannot be null");
+      throw new Error();
+    }
+
+    if (!link) {
+      console.log("Fav link cannot be null");
+      res.status(403).send("Fav link cannot be null");
+      throw new Error();
+    }
+    // Ensuring every favorite have their properties
     if (title.length !== description.length || title.length !== link.length) {
       console.log("Data is missing in body");
       res.status(403).send("Data is missing in body");
       throw new Error();
     }
 
+    // Ensuring that any elements in arrays aren't null
+    title.map((stitle) => {
+      if (stitle === "") {
+        console.log("Null title is forbidden");
+        res.status(403).send("Null title is forbidden");
+        throw new Error();
+      }
+    });
+
+    link.map((slink) => {
+      if (slink === "") {
+        console.log("Null link is forbidden");
+        res.status(403).send("Null link is forbidden");
+        throw new Error();
+      }
+    });
+    description.map((sdescription) => {
+      if (sdescription === "") {
+        console.log("Null description is forbidden");
+        res.status(403).send("Null description is forbidden");
+        throw new Error();
+      }
+    });
+
     ListFav.updateOne(list, listToUpdate, (error, updatedList) => {
       if (!error) {
         res.status(200).json(updatedList);
-        console.log(
-          "name",
-          name,
-          "title",
-          title,
-          "desc",
-          description,
-          "link",
-          link
-        );
-      } else res.status(500).send(error);
+      } else res.status(403).send();
     });
   } catch (error) {
-    res.status(500).send(error);
+    res.status(403).send();
   }
 };
 
@@ -155,6 +196,6 @@ export const deleteListFav = async (req, res) => {
       if (deletedList) res.status(200).json(deletedList);
     }
   } catch (error) {
-    res.status(500).json({ error });
+    res.status(403).send();
   }
 };
