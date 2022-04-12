@@ -6,15 +6,16 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:watch":"jest --watch",
+    "test:watch": "jest --watch",
     "start": "nodemon server.js",
-    "dev":"set NODE_ENV=dev&& nodemon server.js",
-    "server-test":"set NODE_ENV=test&& nodemon server.js"
+    "dev": "set NODE_ENV=dev&& nodemon server.js",
+    "server-test": "set NODE_ENV=test&& nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.26.1",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
