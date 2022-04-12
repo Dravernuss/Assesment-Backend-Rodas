@@ -82,6 +82,24 @@ export const createUser = async (req, res) => {
   }
 };
 
+export const deleteUser = async (req, res) => {
+  const { id: idUser } = req.params;
+  try {
+    const userToDelete = await User.findById(idUser);
+    const { email } = userToDelete;
+
+    if (!userToDelete) {
+      res.status(204).send({ err: "No user to delete" });
+    } else {
+      const deletedUser = await User.deleteOne(userToDelete);
+      if (deletedUser)
+        res.status(200).send(`User ${email} deleted Successfully`);
+    }
+  } catch (error) {
+    res.status(403).send();
+  }
+};
+
 export const login = async (req, res) => {
   const { email, password } = req.body;
   const userDB = await User.findOne({ email });
