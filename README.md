@@ -29,11 +29,11 @@ https://backend.mega-app.com.co:8080/api/articles/search?docid=1020&hl=en#dayone
 
 - Restful : REST is the underlying architectural principle of the web.The amazing thing about the web is the fact that clients (browsers) and servers can interact in complex ways without the client knowing anything beforehand about the server and the resources it hosts.
 
-\*statusCode 200: The HTTP 200 OK status response code indicates that the request was successful.
+- statusCode 200: The HTTP 200 OK status response code indicates that the request was successful.
 
-\*statusCode 400: The HTTP 400 Bad Request indicates that The server cannot or will not process the request due to something that is perceived to be a client error.
+- statusCode 400: The HTTP 400 Bad Request indicates that The server cannot or will not process the request due to something that is perceived to be a client error.
 
-\*statusCode 500: The HTTP 400 Internal Server Error is a generic error response.
+- statusCode 500: The HTTP 400 Internal Server Error is a generic error response.
 
 ### 3.- When we talk about CRUD, what does it mean?
 
