@@ -85,8 +85,8 @@ export const updateListFav = async (req, res) => {
   try {
     // Ensuring name Lists can't be changed to empty
     if (!name) {
-      console.log("Fav Name cannot be null");
-      res.status(403).send("Fav Name cannot be null");
+      console.log("List Name cannot be null");
+      res.status(403).send("List Name cannot be null");
       throw new Error();
     }
 

@@ -62,12 +62,12 @@ export const createUser = async (req, res) => {
 
     if (!password.match(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).*$/)) {
       console.log(
-        "Must have at least 1 uppercase, 1 lowercase letter and 1 number"
+        "Password Must have at least 1 uppercase, 1 lowercase letter and 1 number"
       );
       res
         .status(403)
         .send(
-          "Must have at least 1 uppercase, 1 lowercase letter and 1 number"
+          "Password Must have at least 1 uppercase, 1 lowercase letter and 1 number"
         );
       throw new Error();
     }
@@ -104,8 +104,8 @@ export const login = async (req, res) => {
   const { email, password } = req.body;
   const userDB = await User.findOne({ email });
   if (!userDB) {
-    res.status(403).send("User not found!");
-    return console.log("User not found!");
+    res.status(403).send("User not found");
+    return console.log("User not found");
   }
 
   //Validate Hash
