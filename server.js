@@ -1,7 +1,17 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import "dotenv/config";
+import dotenv from "dotenv";
+import { listRouter, userRouter } from "./api/routes/index.js";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// config environments
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+dotenv.config({
+  path: path.resolve(__dirname, `${process.env.NODE_ENV}.env`),
+});
 
 /**
  * Mongoose
@@ -20,10 +30,17 @@ mongoose.connection.on("error", function (e) {
  */
 const app = express();
 
+//Middleware
+app.use(cors());
+app.use(express.json());
+
 // Routes
 app.get("/", (request, response) => {
   response.send("ASSESMENT BACKEND ESTEBAN RODAS");
 });
+
+app.use("/api", userRouter);
+app.use("/api", listRouter);
 
 const PORT = process.env.PORT || 5000;
 
