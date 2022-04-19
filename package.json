@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon server.js",
+    "start": "set NODE_ENV=dev&&nodemon server.js",
     "dev": "set NODE_ENV=dev&& nodemon server.js",
     "server-test": "set NODE_ENV=test&& nodemon server.js"
   },
