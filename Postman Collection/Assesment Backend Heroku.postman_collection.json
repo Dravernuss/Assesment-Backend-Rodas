@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "3b9b9354-70de-4f8c-9598-fdf04ffc926e",
+		"name": "Assesment Backend Heroku",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register a User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"password\":\"1aAs24\",\r\n   \"email\":\"test@test23.com\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://favs-api-esteban.herokuapp.com/api/users/create",
+							"protocol": "http",
+							"host": [
+								"favs-api-esteban",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjUwMzg3NTE3fQ.m4FNrJqD1QCZRctnkBt_KQyeiRJLXpdhgI3zR_Mhv7A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://favs-api-esteban.herokuapp.com/api/users",
+							"protocol": "http",
+							"host": [
+								"favs-api-esteban",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One User by Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://favs-api-esteban.herokuapp.com/api/users/6251ea3d1f24534470bb4c0a",
+							"protocol": "http",
+							"host": [
+								"favs-api-esteban",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"6251ea3d1f24534470bb4c0a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"test@test2.com\",\r\n    \"password\":\"1aAs24\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://favs-api-esteban.herokuapp.com/api/users/login",
+							"protocol": "http",
+							"host": [
+								"favs-api-esteban",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://favs-api-esteban.herokuapp.com/api/users/delete/625eea74bc7ccf40cbb20ee6",
+							"protocol": "http",
+							"host": [
+								"favs-api-esteban",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"delete",
+								"625eea74bc7ccf40cbb20ee6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ListFavs",
+			"item": [
+				{
+					"name": "Get all ListsFavs for all Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://favs-api-esteban.herokuapp.com/api/favs",
+							"protocol": "http",
+							"host": [
+								"favs-api-esteban",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"favs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all ListsFavs by User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://favs-api-esteban.herokuapp.com/api/favs/6251ea3d1f24534470bb4c0a",
+							"protocol": "http",
+							"host": [
+								"favs-api-esteban",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"favs",
+								"6251ea3d1f24534470bb4c0a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One ListFav by list_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://favs-api-esteban.herokuapp.com/api/favs/singlelist/62521add5b658dfcac02912f",
+							"protocol": "http",
+							"host": [
+								"favs-api-esteban",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"favs",
+								"singlelist",
+								"62521add5b658dfcac02912f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new List for a User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzdGViYW4xNi5yb2Rhc0BnbWFpbC5jb20iLCJpYXQiOjE2NDk3ODAzNjV9.0kx2e4ciG9Lf5wKuAXTcIv8nqhxG1DSkziJAxV621OI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Series\",\r\n    \"title\":[\"The Walking Dead\",\"The Witcher\"],\r\n    \"description\":[\"Serie about living deads\",\"Serie inspired from a game\"],\r\n    \"link\":[\"https://es.wikipedia.org/wiki/The_Walking_Dead_(serie_de_televisi%C3%B3n)\",\"https://www.netflix.com/title/80189685\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://favs-api-esteban.herokuapp.com/api/favs/create/62520105fb4d51c206d40943",
+							"protocol": "http",
+							"host": [
+								"favs-api-esteban",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"favs",
+								"create",
+								"62520105fb4d51c206d40943"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit or add items to a List",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Books\",\r\n    \"title\":[\"War and Peace\",\"Hamlet\"],\r\n    \"description\":[\"Author: León Tolstoí\",\"Author: William Shakespeare\"],\r\n    \"link\":[\"https://www.amazon.es/War-Peace-Leo-Tolstoy/dp/184990846X\",\"https://biblioteca.org.ar/libros/89485.pdf\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://favs-api-esteban.herokuapp.com/api/favs/update/62521add5b658dfcac02912f",
+							"protocol": "http",
+							"host": [
+								"favs-api-esteban",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"favs",
+								"update",
+								"62521add5b658dfcac02912f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a ListFavs",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://favs-api-esteban.herokuapp.com/api/favs/delete/625eea9cbc7ccf40cbb20ef2",
+							"protocol": "http",
+							"host": [
+								"favs-api-esteban",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"favs",
+								"delete",
+								"625eea9cbc7ccf40cbb20ef2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
