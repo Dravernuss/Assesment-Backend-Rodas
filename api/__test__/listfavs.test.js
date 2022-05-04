@@ -13,19 +13,21 @@ describe("ListFav tests", () => {
   });
 
   it("should create a new listFav", async () => {
+    // User id 6255a4e06a9793184425c922 from esteban16.rodas@gmail.com
     const favList = {
-      name: "Series",
-      title: ["The Walking Dead", "The Witcher"],
-      description: ["Serie about living deads", "Serie inspired from a game"],
-      link: [
-        "https://es.wikipedia.org/wiki/The_Walking_Dead_(serie_de_televisi%C3%B3n)",
-        "https://www.netflix.com/title/80189685",
+      name: "Movies",
+      user_id: "6255a4e06a9793184425c922",
+      favs: [
+        {
+          title: "Star Wars",
+          description: "Scy-fiction movie about jedi and sith",
+          link: "https://es.wikipedia.org/wiki/Star_Wars",
+        },
       ],
     };
 
-    // User id 6255a4e06a9793184425c922 from esteban16.rodas@gmail.com
     const result = await axios.post(
-      "http://localhost:5000/api/favs/create/6255a4e06a9793184425c922",
+      "http://localhost:5000/api/favs/create",
       favList,
       {
         headers: {
@@ -34,16 +36,31 @@ describe("ListFav tests", () => {
       }
     );
     expect(result.data).toBeDefined();
-    expect(result.data.name).toEqual("Series");
-    expect(result.data.title).toEqual(["The Walking Dead", "The Witcher"]);
-    expect(result.data.description).toEqual([
-      "Serie about living deads",
-      "Serie inspired from a game",
-    ]);
-    expect(result.data.link).toEqual([
-      "https://es.wikipedia.org/wiki/The_Walking_Dead_(serie_de_televisi%C3%B3n)",
-      "https://www.netflix.com/title/80189685",
-    ]);
+    expect(result.data.newList.name).toEqual("Movies");
+    expect(result.data.newList.user_id).toEqual("6255a4e06a9793184425c922");
+    expect(result.data.newList.favs).toBeDefined();
+  });
+
+  it("should fail creating a new list for missing token", async () => {
+    const favList = {
+      name: "Movies",
+      user_id: "6255a4e06a9793184425c922",
+      favs: [
+        {
+          title: "Star Wars",
+          description: "Scy-fiction movie about jedi and sith",
+          link: "https://es.wikipedia.org/wiki/Star_Wars",
+        },
+      ],
+    };
+    await axios
+      .post("http://localhost:5000/api/favs/create", favList)
+      .catch((error) => {
+        const status = error.response.status;
+        const message = error.response.data;
+        expect(status).toEqual(403);
+        expect(message).toEqual("Missing  Bearer Auth (JWT)");
+      });
   });
 
   it("should get all listFav for all Users", async () => {
@@ -53,6 +70,15 @@ describe("ListFav tests", () => {
       },
     });
     expect(result.status).toEqual(200);
+  });
+
+  it("should fail getting all listFav for all Users for missing token", async () => {
+    await axios.get("http://localhost:5000/api/favs").catch((error) => {
+      const status = error.response.status;
+      const message = error.response.data;
+      expect(status).toEqual(403);
+      expect(message).toEqual("Missing  Bearer Auth (JWT)");
+    });
   });
 
   it("should get all listFav for a specific User", async () => {
@@ -68,10 +94,22 @@ describe("ListFav tests", () => {
     expect(result.status).toEqual(200);
   });
 
-  it("should get one listFav by list Id", async () => {
+  it("should fail getting all listFav for a specific User for missing token", async () => {
     // User id 6255a4e06a9793184425c922 from esteban16.rodas@gmail.com
+    await axios
+      .get("http://localhost:5000/api/favs/6255a4e06a9793184425c922")
+      .catch((error) => {
+        const status = error.response.status;
+        const message = error.response.data;
+        expect(status).toEqual(403);
+        expect(message).toEqual("Missing  Bearer Auth (JWT)");
+      });
+  });
+
+  it("should get one listFav by list Id", async () => {
+    // FavList id 6271f94f583bd81d769f00d7 from esteban16.rodas@gmail.com
     const result = await axios.get(
-      "http://localhost:5000/api/favs/singlelist/6255bcaf82495c6cfffcb15f",
+      "http://localhost:5000/api/favs/singlelist/6271f94f583bd81d769f00d7",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -81,7 +119,19 @@ describe("ListFav tests", () => {
     expect(result.status).toEqual(200);
   });
 
-  it("should edit or add items to one FavList", async () => {
+  it("should fail getting one listFav by list Id for missing token", async () => {
+    // FavList id 6271f94f583bd81d769f00d7 from esteban16.rodas@gmail.com
+    await axios
+      .get("http://localhost:5000/api/favs/singlelist/6271f94f583bd81d769f00d7")
+      .catch((error) => {
+        const status = error.response.status;
+        const message = error.response.data;
+        expect(status).toEqual(403);
+        expect(message).toEqual("Missing  Bearer Auth (JWT)");
+      });
+  });
+
+  it("should add items to one FavList", async () => {
     // Search listFav id to test
     const listFavs = await axios.get("http://localhost:5000/api/favs", {
       headers: {
@@ -89,18 +139,14 @@ describe("ListFav tests", () => {
       },
     });
     const listFavToUpdate = listFavs.data[1];
-    const favList = {
-      name: "Series",
-      title: ["The Walking Dead", "The Witcher 2"],
-      description: ["Serie about living deads", "Serie inspired from a game 2"],
-      link: [
-        "https://es.wikipedia.org/wiki/The_Walking_Dead_(serie_de_televisi%C3%B3n)",
-        "https://www.netflix.com/title/80189685",
-      ],
+    const fav = {
+      title: "Star Wars II",
+      description: "Continue the Scy-fiction movie about jedi and sith",
+      link: "https://es.wikipedia.org/wiki/Star_Wars",
     };
     const result = await axios.put(
       `http://localhost:5000/api/favs/update/${listFavToUpdate._id}`,
-      favList,
+      fav,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -108,7 +154,48 @@ describe("ListFav tests", () => {
       }
     );
     expect(result.status).toEqual(200);
-    expect(result.data.modifiedCount).toEqual(1);
+    expect(result.data).toBeDefined();
+  });
+
+  it("should fail add items to one FavList for missing token", async () => {
+    // Search listFav id to test
+    const listFavs = await axios.get("http://localhost:5000/api/favs", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const listFavToUpdate = listFavs.data[1];
+    const fav = {
+      title: "Star Wars II",
+      description: "Continue the Scy-fiction movie about jedi and sith",
+      link: "https://es.wikipedia.org/wiki/Star_Wars",
+    };
+    await axios
+      .put(`http://localhost:5000/api/favs/update/${listFavToUpdate._id}`, fav)
+      .catch((error) => {
+        const status = error.response.status;
+        const message = error.response.data;
+        expect(status).toEqual(403);
+        expect(message).toEqual("Missing  Bearer Auth (JWT)");
+      });
+  });
+
+  it("should fail deleting one FavList for missing token", async () => {
+    // Search favList id to delete
+    const listFavs = await axios.get("http://localhost:5000/api/favs", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const listFavToDelete = listFavs.data[1];
+    await axios
+      .delete(`http://localhost:5000/api/favs/delete/${listFavToDelete._id}`)
+      .catch((error) => {
+        const status = error.response.status;
+        const message = error.response.data;
+        expect(status).toEqual(403);
+        expect(message).toEqual("Missing  Bearer Auth (JWT)");
+      });
   });
 
   it("should delete one FavList", async () => {

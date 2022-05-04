@@ -6,7 +6,7 @@ Topics covered are: Node.js, Git, Heroku, JWT and Jest.
 
 ## Api documentation
 
-[FAVS API DOCUMENTATION](https://github.com/Dravernuss/Assesment-Backend-Rodas/blob/develop/documentation.pdf)
+[FAVS API DOCUMENTATION](https://github.com/Dravernuss/Assesment-Backend-Rodas/blob/main/documentation.pdf)
 
 ## Questions
 
