@@ -1,7 +1,5 @@
 import express from "express";
-
 import { userCtrl } from "../controllers/index.js";
-
 import { isAuthenticated } from "../middlewares/index.js";
 
 const { getAllUsers, getOneUser, createUser, deleteUser, login } = userCtrl;

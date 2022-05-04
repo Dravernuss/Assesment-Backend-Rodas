@@ -1,16 +1,21 @@
 import mongoose from "mongoose";
 
-// Schema ListFav
-const schemaListsFav = {
-  user_id: String,
-  user_email: String,
-  name: String,
-  title: Array,
-  description: Array,
-  link: Array,
-};
+const { Schema } = mongoose;
 
-// User model
+const favSchema = new Schema({
+  title: String,
+  description: String,
+  link: String,
+});
+
+// Schema ListFav
+const schemaListsFav = new Schema({
+  name: String,
+  user_id: mongoose.SchemaTypes.ObjectId,
+  favs: [favSchema],
+});
+
+// FavList model
 const ListFav = mongoose.model("ListFav", schemaListsFav, "listsfav");
 
 export default ListFav;
