@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n   \"password\":\"1aAs24\",\r\n   \"email\":\"test@test23.com\" \r\n}",
+							"raw": "{\r\n   \"password\":\"1aAs24\",\r\n   \"email\":\"test@test3.com\" \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -45,7 +45,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5ODY2MTExfQ.27-neajDzW6BOeOt8IlaalVNBV9-sgOXIY64FX9X2jQ",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjUxNjM0NDQzfQ.HXMAepq_XsCru01aeFdRIf7h6v3Rbmhv3ndawUbltbk",
 								"type": "text"
 							}
 						],
@@ -71,7 +71,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjUxNjM0NDQzfQ.HXMAepq_XsCru01aeFdRIf7h6v3Rbmhv3ndawUbltbk",
 								"type": "text"
 							}
 						],
@@ -133,7 +133,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:5000/api/users/delete/6256f606db070e10b38573eb",
+							"raw": "http://localhost:5000/api/users/delete/6272ab1f7129cf28d493bd1d",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -143,7 +143,7 @@
 								"api",
 								"users",
 								"delete",
-								"6256f606db070e10b38573eb"
+								"6272ab1f7129cf28d493bd1d"
 							]
 						}
 					},
@@ -161,7 +161,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjUxNjM0NDQzfQ.HXMAepq_XsCru01aeFdRIf7h6v3Rbmhv3ndawUbltbk",
 								"type": "text"
 							}
 						],
@@ -187,12 +187,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjUxNjM0NDQzfQ.HXMAepq_XsCru01aeFdRIf7h6v3Rbmhv3ndawUbltbk",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:5000/api/favs/6251ea3d1f24534470bb4c0a",
+							"raw": "http://localhost:5000/api/favs/6271f3cae66a9f755f201cf5",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -201,7 +201,7 @@
 							"path": [
 								"api",
 								"favs",
-								"6251ea3d1f24534470bb4c0a"
+								"6271f3cae66a9f755f201cf5"
 							]
 						}
 					},
@@ -214,12 +214,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjUxNjM0NDQzfQ.HXMAepq_XsCru01aeFdRIf7h6v3Rbmhv3ndawUbltbk",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:5000/api/favs/singlelist/62521add5b658dfcac02912f",
+							"raw": "http://localhost:5000/api/favs/singlelist/6271f484e66a9f755f201d0b",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -229,7 +229,7 @@
 								"api",
 								"favs",
 								"singlelist",
-								"62521add5b658dfcac02912f"
+								"6271f484e66a9f755f201d0b"
 							]
 						}
 					},
@@ -242,13 +242,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVzdGViYW4xNi5yb2Rhc0BnbWFpbC5jb20iLCJpYXQiOjE2NDk3ODAzNjV9.0kx2e4ciG9Lf5wKuAXTcIv8nqhxG1DSkziJAxV621OI",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjUxNjM0NDQzfQ.HXMAepq_XsCru01aeFdRIf7h6v3Rbmhv3ndawUbltbk",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Series\",\r\n    \"title\":[\"The Walking Dead\",\"The Witcher\"],\r\n    \"description\":[\"Serie about living deads\",\"Serie inspired from a game\"],\r\n    \"link\":[\"https://es.wikipedia.org/wiki/The_Walking_Dead_(serie_de_televisi%C3%B3n)\",\"https://www.netflix.com/title/80189685\"]\r\n}",
+							"raw": "{\r\n    \"name\":\"Movies\",\r\n    \"user_id\":\"6251ea3d1f24534470bb4c0a\",\r\n    \"favs\":[\r\n        {\r\n        \"title\":\"Star Wars\",\r\n        \"description\": \"Scy-fiction movie about jedi and sith\",\r\n        \"link\": \"https://es.wikipedia.org/wiki/Star_Wars\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -256,7 +256,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/favs/create/62520105fb4d51c206d40943",
+							"raw": "http://localhost:5000/api/favs/create",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -265,27 +265,26 @@
 							"path": [
 								"api",
 								"favs",
-								"create",
-								"62520105fb4d51c206d40943"
+								"create"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Edit or add items to a List",
+					"name": "Add items to a List",
 					"request": {
 						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjUxNjM0NDQzfQ.HXMAepq_XsCru01aeFdRIf7h6v3Rbmhv3ndawUbltbk",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\":\"Books\",\r\n    \"title\":[\"War and Peace\",\"Hamlet\"],\r\n    \"description\":[\"Author: León Tolstoí\",\"Author: William Shakespeare\"],\r\n    \"link\":[\"https://www.amazon.es/War-Peace-Leo-Tolstoy/dp/184990846X\",\"https://biblioteca.org.ar/libros/89485.pdf\"]\r\n}",
+							"raw": "{\r\n    \"title\": \"Game of Thrones\",\r\n    \"description\": \"Inspired in books\",\r\n    \"link\": \"https://es.wikipedia.org/wiki/Game_of_Thrones\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -293,7 +292,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5000/api/favs/update/62521add5b658dfcac02912f",
+							"raw": "http://localhost:5000/api/favs/update/6271f41fe66a9f755f201cff",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -303,7 +302,7 @@
 								"api",
 								"favs",
 								"update",
-								"62521add5b658dfcac02912f"
+								"6271f41fe66a9f755f201cff"
 							]
 						}
 					},
@@ -316,12 +315,12 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjQ5NTM2MDUwfQ.9CdUW6dLUe3Ht_7x6NkpZZQVVZVdYY-iknIBt2YqmkU",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAdGVzdDIuY29tIiwiaWF0IjoxNjUxNjM0NDQzfQ.HXMAepq_XsCru01aeFdRIf7h6v3Rbmhv3ndawUbltbk",
 								"type": "text"
 							}
 						],
 						"url": {
-							"raw": "http://localhost:5000/api/favs/delete/6256f6a9db070e10b3857408",
+							"raw": "http://localhost:5000/api/favs/delete/6271f64ae5657e484042e323",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -331,7 +330,7 @@
 								"api",
 								"favs",
 								"delete",
-								"6256f6a9db070e10b3857408"
+								"6271f64ae5657e484042e323"
 							]
 						}
 					},
